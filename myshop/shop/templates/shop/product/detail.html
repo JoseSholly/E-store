@@ -10,12 +10,21 @@
     <div class="product-detail">
         <img src="{% if product.image %}{{ product.image.url }}{% else %} {% static 'img/no_image_1.jpg' %}{% endif %}">
         <h1>{{ product.name }}</h1>
-        <h2> 
+        <h2>Category:
             <a href="{{ product.category.get_absolute_url }}">
                 {{ product.category }}
             </a>
         </h2>
         <p class="price">${{ product.price }}</p>
+        <p class="in_stock">
+            {% if product.stock_quantity >= 10 %}
+                <p>In Stock</p>
+            {% elif 5 < product.stock_quantity > 10 %}
+                <p>Few Stock remaining</p>
+            {% else %}
+                <p>{{ product.stock_quantity }} items left</p>
+            {% endif %}
+            </p>
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}

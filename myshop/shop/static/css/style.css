@@ -330,3 +330,8 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+
+.in_stock {
+    font-weight: lighter;
+    font-size: 12px;
+}
