@@ -9,8 +9,8 @@ class Order(models.Model):
                                default=uuid.uuid4, 
                                editable=False,
                                )
-    first_name= models.CharField(max_length=50, help_text='First Name')
-    last_name= models.CharField(max_length=50, help_text='Last Name')
+    first_name= models.CharField(max_length=50,)
+    last_name= models.CharField(max_length=50,)
     email= models.EmailField()
     address= models.CharField(max_length=250)
     postal_code= models.CharField(max_length=20)
@@ -36,6 +36,8 @@ class OrderItem(models.Model):
     product= models.ForeignKey(Product,
                                related_name='order_items',
                                on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10,
+                                decimal_places=2,default=0)
     quantity= models.PositiveIntegerField(default=1)
     
 

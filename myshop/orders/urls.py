@@ -4,7 +4,7 @@ from . import views
 app_name='orders'
 
 
-urlspatterns=[
+urlpatterns=[
     path('create/', views.order_create, name='order_create'),
-    
+
 ]
