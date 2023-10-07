@@ -1,11 +1,16 @@
 from django.db import models
 from shop.models import Product
+import uuid
 
 # Create your models here.
 
 class Order(models.Model):
-    first_name= models.CharField(max_length=50)
-    last_name= models.CharField(max_length=50)
+    id= models.UUIDField(primary_key=True,
+                               default=uuid.uuid4, 
+                               editable=False,
+                               )
+    first_name= models.CharField(max_length=50, help_text='First Name')
+    last_name= models.CharField(max_length=50, help_text='Last Name')
     email= models.EmailField()
     address= models.CharField(max_length=250)
     postal_code= models.CharField(max_length=20)
@@ -32,6 +37,7 @@ class OrderItem(models.Model):
                                related_name='order_items',
                                on_delete=models.CASCADE)
     quantity= models.PositiveIntegerField(default=1)
+    
 
     def __str__(self) -> str:
         return str(self.id)
