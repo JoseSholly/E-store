@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from PIL import Image
 
 # Create your models here.
 
@@ -47,6 +48,7 @@ class Product(models.Model):
             models.Index(fields=['id', 'slug']),
             models.Index(fields=['name']),
             models.Index(fields=['-created'])
+
         ]
     
     def __str__(self) -> str:

@@ -16,15 +16,18 @@
             </a>
         </h2>
         <p class="price">${{ product.price }}</p>
-        <p class="in_stock">
+        <h3 class="in_stock">
+            Availability: 
             {% if product.stock_quantity >= 10 %}
-                <p>In Stock</p>
+                <p class="in_stock">In Stock</p>
             {% elif 5 < product.stock_quantity > 10 %}
-                <p>Few Stock remaining</p>
-            {% else %}
-                <p>{{ product.stock_quantity }} items left</p>
+                <p class="in_stock">Few Stock remaining</p>
+            {% elif product.stock_quantity <= 0 %}
+                <p class="in_stock">Out of Stock</p> 
+            {% else %}<p class="in_stock">
+                {{ product.stock_quantity }} items left</p>
             {% endif %}
-            </p>
+            </h3>
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}

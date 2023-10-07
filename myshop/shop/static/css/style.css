@@ -4,6 +4,7 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; font-weight:lighter; */
 }
 
 h1, h2, h3, h4, h5 , h6 {
@@ -331,7 +332,10 @@ form div.field {
     border-radius:4px;
 }
 
-.in_stock {
-    font-weight: lighter;
-    font-size: 12px;
+h3 .in_stock {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif; font-weight:lighter;
+    display: inline;
 }
