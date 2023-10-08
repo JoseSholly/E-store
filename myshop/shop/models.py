@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from PIL import Image
+# from django_resized import ResizedImageField
 
 # Create your models here.
 
@@ -31,8 +32,8 @@ class Product(models.Model):
                                 on_delete=models.CASCADE)
     name= models.CharField(max_length=200)
     slug= models.SlugField(max_length=200)
-    image= models.ImageField(upload_to='products/%Y/%m/%d', 
-                             blank=True)
+    # image= ResizedImageField(scale=0.5, upload_to='products/%Y/%m/%d', blank= True)
+    image= models.ImageField(upload_to='products/%Y/%m/%d',blank=True)
     description= models.TextField(blank=True)
     price= models.DecimalField(max_digits=10, 
                                decimal_places=2)

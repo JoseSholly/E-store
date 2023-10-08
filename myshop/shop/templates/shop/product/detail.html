@@ -1,6 +1,7 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
+{% load thumbnail %}
 {% block title %} 
     {{ product.name }} 
 {% endblock %}
@@ -8,7 +9,7 @@
 
 {% block content %}
     <div class="product-detail">
-        <img src="{% if product.image %}{{ product.image.url }}{% else %} {% static 'img/no_image_1.jpg' %}{% endif %}">
+        <img src="{% if product.image %}{% thumbnail product.image 1000x0 crop='smart' %}{% else %} {% static 'img/no_image_1.jpg' %}{% endif %}">
         <h1>{{ product.name }}</h1>
         <h2>Category:
             <a href="{{ product.category.get_absolute_url }}">
