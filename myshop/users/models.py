@@ -29,12 +29,13 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser, PermissionsMixin):
-    email = models.EmailField(unique=True, null=False, default='admin@gmail.com')
+    email = models.EmailField(unique=True, null=False,)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     date_joined = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
-    username = models.CharField(max_length=150, unique=True, default='')
+    # username = models.CharField(max_length=150, default='')
+    username = None
 
     objects = CustomUserManager()
 
