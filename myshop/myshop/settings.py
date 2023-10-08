@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'orders.apps.OrdersConfig',
     'easy_thumbnails',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
