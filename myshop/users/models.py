@@ -54,20 +54,35 @@ class CustomUser(AbstractUser, PermissionsMixin):
     
     
 class CustomProfile(models.Model):
-    user= models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
-    image= models.ImageField(upload_to= 'profile_pics', default= 'default.jpg')
-    date_of_birth= models.DateField(null=True, blank=True)
+    class GenderStatus(models.TextChoices):
+        MALE= 'M', 'Male'
+        FEMALE= 'F', 'Female'
+
+
+    user= models.OneToOneField(CustomUser,
+                               on_delete=models.CASCADE,)
+
+    gender= models.CharField(max_length=1,
+                             choices=GenderStatus.choices,
+                             default=GenderStatus.MALE)
+    
+    image= models.ImageField(upload_to= 'profile_pics',
+                             default= 'default.jpg')
+    
+    date_of_birth= models.DateField(null=True,
+                                    blank=True)
+    
     phone_number = PhoneNumberField(blank= True)
 
+    updated= models.DateTimeField(auto_now=True,)
+
     class Meta:
-        ordering= ['user']
+        ordering= ['-updated']
         indexes=[
-            models.Index(fields=['user'])
+            models.Index(fields=['-updated'])
         ]
         verbose_name= 'profile'
         verbose_name_plural= 'profiles'
-
-
 
     def __str__(self) -> str:
         return f"{self.user.first_name} {self.user.last_name} Profile"
