@@ -48,8 +48,8 @@ class CustomUser(AbstractUser, PermissionsMixin):
 class CustomProfile(models.Model):
     user= models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
     image= models.ImageField(upload_to= 'profile_pics', default= 'default.jpg')
-    date_of_birth= BirthdayField()
-    phone_number = PhoneNumberField()
+    date_of_birth= models.DateField(null=True, blank=True)
+    phone_number = PhoneNumberField(blank= True)
 
 
     def __str__(self) -> str:
