@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager, Permission
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as lazy
-from birthday import BirthdayField
 from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
@@ -41,15 +40,33 @@ class CustomUser(AbstractUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+    
+    class Meta:
+        ordering= ['email']
+        indexes=[
+            models.Index(fields=['email'])
+        ]
+        verbose_name= 'user'
+        verbose_name_plural= 'users'
 
     def __str__(self):
         return self.email
+    
     
 class CustomProfile(models.Model):
     user= models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
     image= models.ImageField(upload_to= 'profile_pics', default= 'default.jpg')
     date_of_birth= models.DateField(null=True, blank=True)
     phone_number = PhoneNumberField(blank= True)
+
+    class Meta:
+        ordering= ['user']
+        indexes=[
+            models.Index(fields=['user'])
+        ]
+        verbose_name= 'profile'
+        verbose_name_plural= 'profiles'
+
 
 
     def __str__(self) -> str:
