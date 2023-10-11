@@ -2,7 +2,7 @@ from django import forms
 from .models import CustomProfile, CustomUser
 from django.contrib.auth.forms import UserCreationForm
 
-class UserRegisterForm(forms.ModelForm):
+class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model= CustomUser
