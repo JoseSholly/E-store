@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'users.apps.UsersConfig',
     'phonenumber_field',
-]
+    'bootstrap5',
+    ]
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
