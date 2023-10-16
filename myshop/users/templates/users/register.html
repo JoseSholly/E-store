@@ -5,9 +5,13 @@ Login
 {% endblock %}
 
 {% block content %}
-<form action="" method="POST">
+<div class="form-section">
+  <form action="" method="POST">
     {% csrf_token %}
   {{ form }}
    <button type="submit">Submit</button>
 </form>
+
+</div>
+
 {% endblock %}

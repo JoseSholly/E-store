@@ -343,3 +343,13 @@ h3 .in_stock {
     font-family: 'Ubuntu', sans-serif; font-weight:lighter;
     display: inline;
 }
+
+.form-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  display: block;
+}
