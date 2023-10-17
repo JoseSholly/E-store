@@ -1,16 +1,20 @@
 {% extends "shop/base.html" %}
 {% load crispy_forms_tags %}
+{% load bootstrap4 %}
 
 {% block title %}
-Login
+Register
 {% endblock %}
 
 {% block content %}
 <div class="form-section">
   <form action="" method="POST">
     {% csrf_token %}
-  {{ form|crispy }}
-   <button type="submit">Submit</button>
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Create an account</legend>
+      {{ form|crispy }}
+    </fieldset>
+   <button class="btn btn-primary btn-lg" type="submit">Submit</button>
 </form>
 
 </div>
