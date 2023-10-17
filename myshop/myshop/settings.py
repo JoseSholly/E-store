@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'users.apps.UsersConfig',
     'phonenumber_field',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +152,10 @@ DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 
 
 AUTH_USER_MODEL= "users.CustomUser"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 
