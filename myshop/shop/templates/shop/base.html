@@ -20,6 +20,12 @@
         {% endif %}
       <div id="header">
         <a href="/" class="logo">My shop</a>
+        {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="#">{{ user }}</a>
+        {% endif %}
+
+        
+
       </div>
       <div id="subheader">
         <div class="cart">
