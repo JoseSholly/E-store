@@ -20,9 +20,13 @@
         {% endif %}
       <div id="header">
         <a href="/" class="logo">My shop</a>
-        {% if user.is_authenticated %}
-          <a class="nav-item nav-link" href="#">{{ user }}</a>
+        <div class="d-flex justify-content-end">
+          {% if user.is_authenticated %}
+          <p>Welcome, {{ user.first_name }}</p>
         {% endif %}
+
+        </div>
+        
 
         
 

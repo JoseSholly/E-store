@@ -356,3 +356,8 @@ h3 .in_stock {
   width:61%;
   display: block;
 }
+
+#header .user_nav {
+    padding: 0;
+    margin: 0;
+}
