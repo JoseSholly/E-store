@@ -14,7 +14,8 @@ Register
     {% csrf_token %}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Create an account</legend>
-      {{ form|crispy }}
+      <!-- {{ form.email.label_tag }} -->
+      {{ form.email|as_crispy_field }}
     </fieldset>
     <div class="d-grid gap-2">
       <button class="btn btn-primary btn-lg" type="submit">Sign Up</button>

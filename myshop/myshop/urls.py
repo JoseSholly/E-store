@@ -22,16 +22,13 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('login/', users_views.user_login, name='login'),
     path('register/', users_views.register, name='register'),
     path('__debug__/', include('debug_toolbar.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('', include('shop.urls', namespace='shop')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('users/', include('users.urls', namespace='users')),
-    
-    
-
 ]
 
 if settings.DEBUG:
