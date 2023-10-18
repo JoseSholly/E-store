@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from users import views as users_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('__debug__/', include('debug_toolbar.urls')),
+    path('register/', users_views.register, name='register'),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('', include('shop.urls', namespace='shop')),
     path('orders/', include('orders.urls', namespace='orders')),
-    path('users/', include('users.urls', namespace='users'))
+    path('users/', include('users.urls', namespace='users')),
+    
     
 
 ]
