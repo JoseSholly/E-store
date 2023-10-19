@@ -18,11 +18,22 @@
         </ul>
           </div>
         {% endif %}
+
+
+        <nav class="navbar bg-body-tertiary nav_bar">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">MyShop</a>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search for categories, products and accessories" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
       <div id="header">
         <a href="/" class="logo">My shop</a>
         <div class="d-flex justify-content-end">
           {% if user.is_authenticated %}
-          <p>Welcome, {{ user.first_name }}</p>
+          <p>Hi, {{ user.first_name }}</p>
         {% endif %}
 
         </div>
