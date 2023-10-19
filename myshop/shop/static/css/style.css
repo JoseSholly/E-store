@@ -362,17 +362,30 @@ h3 .in_stock {
     margin: 0;
 }
 
-.nav_bar a {
+
+
+.nav_bar .logo {
     font-weight: bold;
     font-size: 35px;
-    margin-left: 5%;
+    margin-left: 4%;
     margin-top: 0;
     padding: 0;
     
 }
 
+    
+
+.nav_bar .profile, 
+.nav_bar .logout{
+    font-size: 20px;
+    margin-left: 0;
+
+    
+
+}
+
 .nav_bar form{
-    margin-right: 35%;
+    margin-right: 100%;
     margin-left:0;
     margin-top: 0;
     padding: 0;
