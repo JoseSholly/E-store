@@ -23,7 +23,7 @@
 
         <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top nav_bar">
           <div class="container-fluid">
-            <a class="navbar-brand logo" href="/">MyShop</a>
+            <a class="navbar-brand logo" href="/"><i class="bi bi-cart"></i>MyShop</a>
             <div class="d-flex justify-content-start search_form">
               <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search for categories, products and accessories" aria-label="Search">
@@ -63,8 +63,8 @@
 
                   
               {% else %}
-                  <a class="nav-item nav-link" href="#">Log In</a>
-                  <a class="nav-item nav-link" href="#">Register</a>
+                  <button type="button" class="btn btn-outline-primary">Login</button>
+                  <button type="button" class="btn btn-outline-primary">Sign Up</button>
               {% endif %}
 
             </div>
