@@ -367,41 +367,47 @@ h3 .in_stock {
 .nav_bar .logo {
     font-weight: bold;
     font-size: 35px;
-    margin-left: 4%;
-    margin-top: 0;
-    padding: 0;
-    
-}
-
-    
-
-.nav_bar .profile, 
-.nav_bar .logout{
-    font-size: 20px;
-    margin-left: 0;
-
-    
-
-}
-
-.nav_bar form{
-    margin-right: 100%;
     margin-left:0;
     margin-top: 0;
     padding: 0;
     
 }
+.nav_bar .user_profile button{
+    font-size: 22px;
+    height: 45px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+    
+
+.nav_bar .profile{
+    font-size: 20px;
+    margin-left:0;
+}
+
+.nav_bar .search_form{
+    margin-right: 25%;
+}
 
 .nav_bar form input{
-    width: 700px;
-    height: 45px;
+    width: 800px;
     font-size: 20px;
+    height: 44px;
 }
 
 .nav_bar form button{
     font-size: 20px;
     border-color: white;
     width: 100px;
+    height: 44px;
+
     background-color: #b077d8;
     color: white;
 }
