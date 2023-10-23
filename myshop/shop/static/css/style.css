@@ -362,7 +362,9 @@ h3 .in_stock {
     margin: 0;
 }
 
-
+.nav_bar{
+    padding-bottom: 20px;
+}
 
 .nav_bar .logo {
     font-weight: bold;
@@ -373,19 +375,12 @@ h3 .in_stock {
     
 }
 .nav_bar .user_profile button{
+    margin-left: 20px;
+    margin-right: 20px;
     font-size: 22px;
     height: 45px;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-    
 
 .nav_bar .profile{
     font-size: 20px;
@@ -393,6 +388,7 @@ h3 .in_stock {
 }
 
 .nav_bar .search_form{
+    margin-top: 10px;
     margin-right: 25%;
 }
 
@@ -411,7 +407,29 @@ h3 .in_stock {
     background-color: #b077d8;
     color: white;
 }
+.nav_bar .nav_cart{
+    display: inline;
+    width: 250px;
+    height: 42px;
+    border: 1px solid black;
+    margin-left: 10px;
+    /* margin-right: 50px; */
+}
 
+.nav_bar .nav_cart a,
+.nav_bar .nav_cart p{
+    font-size: 15px;
+}
+
+.nav_bar .nav_cart i {
+    font-size: 30px;
+}
+
+
+
+.nav_bar .about{
+    margin-left: 10px;
+}
 .nav_bar form button:hover{
     background-color:#633185;
     transition: 0.7s;

@@ -44,21 +44,23 @@
                     <li><a class="dropdown-item" href="#">Log Out</a></li>
                   </ul>
                 </div>
-               
-                  
+
+                
+                  <div class="nav_cart">
                     {% with total_items=cart|length %}
                         {% if total_items > 0 %}
-                          Your cart: <a href="{% url 'cart:cart_detail' %}">
-                          {{ total_items }} item{{ total_items|pluralize }},
-                          ${{ cart.get_total_price }}
+                          <p><i class="bi bi-cart-check-fill fa-lg"></i> <a href="{% url 'cart:cart_detail' %}">{{ total_items }} item{{ total_items|pluralize }} : ${{ cart.get_total_price }}</p>
                           </a>
                         {% else %}
-                          Your cart is empty.
-                        {% endif %}
-                        {% endwith %}
-                 
+                        <i class="bi bi-cart-x"><span>Your cart is empty</span></i> 
+                    {% endif %}
+                    {% endwith %}
+                  </div>
+
                 
-                <a class="nav-item nav-link" href="#">About</a>
+                    <a class="nav-item nav-link  about" href="#">About</a>
+                
+                
 
 
                   
@@ -84,20 +86,6 @@
         
 
       </div>
-      <div id="subheader">
-        <div class="cart">
-          {% with total_items=cart|length %}
-              {% if total_items > 0 %}
-                Your cart:
-                <a href="{% url 'cart:cart_detail' %}">
-                {{ total_items }} item{{ total_items|pluralize }},
-                ${{ cart.get_total_price }}
-                </a>
-              {% else %}
-                Your cart is empty.
-              {% endif %}
-              {% endwith %}
-        </div>
       </div>
       <div id="content">
         {% block content %}
