@@ -150,6 +150,7 @@ ul.errorlist {
 #content {
     padding:0 100px;
     overflow:hidden;
+    margin-top: 10px;
 }
 
 #sidebar {
@@ -363,7 +364,7 @@ h3 .in_stock {
 }
 
 .nav_bar{
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .nav_bar .logo {
@@ -398,12 +399,13 @@ h3 .in_stock {
     height: 44px;
 }
 
-.nav_bar form button{
+.nav_bar form button,
+.nav_bar #log_out,
+.nav_bar #sign_up{
     font-size: 20px;
     border-color: white;
     width: 100px;
     height: 44px;
-
     background-color: #b077d8;
     color: white;
 }
@@ -411,26 +413,39 @@ h3 .in_stock {
     display: inline;
     width: 250px;
     height: 42px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: 10px;
+    margin-top:0;
+    padding: 0;
     /* margin-right: 50px; */
 }
 
 .nav_bar .nav_cart a,
 .nav_bar .nav_cart p{
-    font-size: 15px;
+    font-size: 20px; 
+    text-decoration: solid;
 }
 
 .nav_bar .nav_cart i {
-    font-size: 30px;
+    font-size: 32px;
 }
-
-
 
 .nav_bar .about{
-    margin-left: 10px;
+    margin-left: 20px;
+   /* border: #333 1px solid; */
+   padding-top: 10px;
+   font-size: 20px;
+   color: black;
+
 }
-.nav_bar form button:hover{
+
+.nav_bar .about:hover{
+    color:#633185;
+    transition: 0.7s;
+}
+.nav_bar form button:hover,
+.nav_bar #log_out:hover,
+.nav_bar #sign_up:hover{
     background-color:#633185;
     transition: 0.7s;
 }
@@ -438,5 +453,26 @@ h3 .in_stock {
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 4px #5a01a7;
+}
+
+
+.nav_bar #navbar_logged_out{
+    margin-left: 40px;
+    display: inline;
+}
+
+.nav_bar #log_out{
+    margin-left: 50%;
+}
+
+.nav_bar #sign_up{
+    margin-left: 70%;
+
+}
+
+.nav_bar .null_cart{
+    margin-left: 6%;
+    width: 250px;
+    /* border: #333 solid 1px; */
 }
 

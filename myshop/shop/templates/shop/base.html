@@ -49,27 +49,29 @@
                   <div class="nav_cart">
                     {% with total_items=cart|length %}
                         {% if total_items > 0 %}
-                          <p><i class="bi bi-cart-check-fill fa-lg"></i> <a href="{% url 'cart:cart_detail' %}">{{ total_items }} item{{ total_items|pluralize }} : ${{ cart.get_total_price }}</p>
+                          <p><i class="bi bi-cart-check-fill fa-lg"></i><a href="{% url 'cart:cart_detail' %}">{{ total_items }} item{{ total_items|pluralize }} : ${{ cart.get_total_price }}</p>
                           </a>
                         {% else %}
-                        <i class="bi bi-cart-x"><span>Your cart is empty</span></i> 
+                        <i class="bi bi-cart-x"><span style="font-size: 16px;">  Your cart is empty</span></i> 
                     {% endif %}
                     {% endwith %}
                   </div>
-
-                
-                    <a class="nav-item nav-link  about" href="#">About</a>
-                
-                
-
-
-                  
+                    
               {% else %}
-                  <button type="button" class="btn btn-outline-primary">Login</button>
-                  <button type="button" class="btn btn-outline-primary">Sign Up</button>
+              
+                <a href="">
+                <button type="button" class="btn btn-outline-primary" id="log_out">Login</button>
+                </a>
+                <a href="">
+                <button type="button" class="btn btn-outline-primary" id="sign_up">Sign Up</button>
+                </a>
+                <i class="bi bi-cart-x null_cart" style="font-size: 29px;">
+                  <span style="font-size: 16px;">Your cart is empty</span>
+                </i>
+                  
               {% endif %}
+              <a class="nav-item nav-link  about" href="#">About</a>
 
-            </div>
           </div>
         </nav>
 
