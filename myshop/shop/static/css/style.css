@@ -400,7 +400,7 @@ h3 .in_stock {
 }
 
 .nav_bar form button,
-.nav_bar #log_out,
+.nav_bar #log_in,
 .nav_bar #sign_up{
     font-size: 20px;
     border-color: white;
@@ -444,7 +444,7 @@ h3 .in_stock {
     transition: 0.7s;
 }
 .nav_bar form button:hover,
-.nav_bar #log_out:hover,
+.nav_bar #log_in:hover,
 .nav_bar #sign_up:hover{
     background-color:#633185;
     transition: 0.7s;
@@ -461,7 +461,7 @@ h3 .in_stock {
     display: inline;
 }
 
-.nav_bar #log_out{
+.nav_bar #log_in{
     margin-left: 50%;
 }
 
