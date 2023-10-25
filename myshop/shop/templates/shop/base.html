@@ -96,13 +96,17 @@
         }
         </script>
         
+        {% if messages %}
+          {% for message in messages %}
           <div id="message-container" class="hidden">
+              <p id="message-text">This is a dynamic message.</p>
               <script>
-                showMessage("This is a messgae ")
+                showMessage("{{ message }}");
               </script>
-              
-        </div>
+          </div>
+{% endfor %}
 
+          {% endif %}
         
 
       <div id="content">
