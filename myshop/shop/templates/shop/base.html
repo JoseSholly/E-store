@@ -58,14 +58,13 @@
                   </div>
                     
               {% else %}
-              
-                <a href="{% url 'users:login' %}">
-                <button type="button" class="btn btn-outline-primary" id="log_in">Login</button>
-                </a>
-                <a href="{% url 'users:register' %}">
-                <button type="button" class="btn btn-outline-primary" id="sign_up">Sign Up</button>
-                </a>
-                <i class="bi bi-cart-x null_cart" style="font-size: 29px;">
+              <a href="{% url 'users:login' %}" id="log_in">
+                <button type="button" class="btn btn-outline-primary">Login</button>
+              </a>
+              <a href="{% url 'users:register' %}" id="sign_up">
+                <button type="button" class="btn btn-outline-primary">Sign Up</button>
+              </a>
+              <i class="bi bi-cart-x null_cart" style="font-size: 29px;">
                   <span style="font-size: 16px;">Your cart is empty</span>
                 </i>
                   

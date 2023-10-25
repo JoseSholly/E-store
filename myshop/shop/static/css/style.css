@@ -444,34 +444,44 @@ h3 .in_stock {
     transition: 0.7s;
 }
 .nav_bar form button:hover,
-.nav_bar #log_in:hover,
-.nav_bar #sign_up:hover{
+.nav_bar #log_in button:hover,
+.nav_bar #sign_up button:hover{
     background-color:#633185;
     transition: 0.7s;
 }
- .nav_bar form button:focus {
-    outline-color: transparent;
-    outline-style:solid;
-    box-shadow: 0 0 0 4px #5a01a7;
-}
-
 
 .nav_bar #navbar_logged_out{
     margin-left: 40px;
     display: inline;
 }
-
 .nav_bar #log_in{
-    margin-left: 50%;
+    margin-left: 30px;
 }
 
 .nav_bar #sign_up{
-    margin-left: 70%;
+    margin-left: 20px;
+}
+.nav_bar #log_in,
+.nav_bar #sign_up{
+    width: 100px;
+    height: 43px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.nav_bar #log_in button,
+.nav_bar #sign_up button{
+    width: 100px;
+    height: 44px;
+    background-color: #b077d8;
+    color: white;
+    font-size: 20px;
+    border-color: white;
 
 }
 
 .nav_bar .null_cart{
-    margin-left: 6%;
+    margin-left: 1%;
     width: 250px;
     /* border: #333 solid 1px; */
 }
