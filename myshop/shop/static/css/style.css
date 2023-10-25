@@ -380,6 +380,9 @@ h3 .in_stock {
     margin-right: 20px;
     font-size: 22px;
     height: 45px;
+    background-color:#b077d8;
+    color: white;
+    border-color:white;
 }
 
 
@@ -445,7 +448,8 @@ h3 .in_stock {
 }
 .nav_bar form button:hover,
 .nav_bar #log_in button:hover,
-.nav_bar #sign_up button:hover{
+.nav_bar #sign_up button:hover,
+.nav_bar .user_profile button:hover{
     background-color:#633185;
     transition: 0.7s;
 }
