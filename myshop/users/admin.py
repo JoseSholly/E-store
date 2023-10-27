@@ -19,5 +19,4 @@ class UserAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     list_display= ['user', 'gender','date_of_birth', 'phone_number']
     list_filter= ['gender', 'updated']
-    date_hierarchy='updated'
     ordering= ['updated']
