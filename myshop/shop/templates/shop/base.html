@@ -62,17 +62,6 @@
 
           </div>
         </nav>
-        <!-- 
-          {% if messages %}
-          <div class="alert alert-success d-flex justify-content-center messages" role="alert">
-            <ul class="messages">
-            {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-          </div>
-        {% endif %} -->
-
         <script>
           // JavaScript to show and hide the message
         function showMessage(message) {
@@ -92,7 +81,7 @@
                     messageContainer.style.display = 'none'; // Hide after fading out
                     messageContainer.style.opacity = '1'; // Reset opacity for next message
                 }, 500); // Delay before hiding (0.5 seconds)
-            }, 3000); // Delay before starting to hide (3 seconds)
+            }, 5000); // Delay before starting to hide (3 seconds)
         }
         </script>
         

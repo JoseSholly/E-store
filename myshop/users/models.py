@@ -65,6 +65,8 @@ class CustomProfile(models.Model):
     gender= models.CharField(max_length=1,
                              choices=GenderStatus.choices,
                              default=GenderStatus.MALE)
+    address= models.CharField(max_length=250,
+                              null=True)
     
     image= models.ImageField(upload_to= 'profile_pics',
                              default= 'default.jpg')
