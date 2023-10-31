@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
-from .forms import UserRegisterForm, ProfileUpdateForm
+from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -44,6 +44,25 @@ def user_logout(request):
     
     return redirect('shop:product_list')
 
+@login_required
+def user_profile(request):
+    if request.method== "POST":
+        user_form= UserUpdateForm(request.POST, instance= request.user)
+        profile_form= ProfileUpdateForm(request.POST,
+                                        request.FILES,
+                                        instance=request.user.customprofile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, f'Account updated successfully!')
+            return redirect('profile')
+    else:
+        user_form= UserUpdateForm(instance=request.user)
+        profile_form= ProfileUpdateForm(instance=request.user.customprofile)
+    return render(request,
+                  'users/profile.html',
+                  {'user_form': user_form,
+                   'profile_form': profile_form})
 
 
 
