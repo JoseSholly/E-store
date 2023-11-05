@@ -28,7 +28,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 class SavedItems(admin.ModelAdmin):
     list_display= ['user']
-    filter_horizontal = ['favorites']
+    filter_horizontal = ['items']
 
 
 admin.site.register(Favorites, SavedItems)

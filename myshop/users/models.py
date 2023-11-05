@@ -91,7 +91,7 @@ class CustomProfile(models.Model):
     
 class Favorites(models.Model):
     user= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    favorites= models.ManyToManyField('shop.Product', 
+    items= models.ManyToManyField('shop.Product', 
                                      related_name='saved_items',)
     
     class Meta:
