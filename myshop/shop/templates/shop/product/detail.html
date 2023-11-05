@@ -33,7 +33,28 @@
             {{ cart_product_form }}
             {% csrf_token %}
             <input type="submit", value="Add to cart">
+            
+            
         </form>
         {{ product.description|linebreaks }}
+        <script>
+            function toggleFavorite() {
+                var button = document.getElementById("favorite-button");
+                var buttonText = button.textContent;
+
+                if (buttonText === "Save") {
+                    button.textContent = "Saved";
+                    button.classList.add("active");
+                } else {
+                    button.textContent = "Save";
+                    button.classList.remove("active");
+                }
+            }
+        </script>
+        
+        <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button>
+
+        
+        
     </div>
 {% endblock %}

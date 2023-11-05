@@ -209,6 +209,7 @@ ul.errorlist {
 }
 
 .product-detail {
+    margin-top: 5%;
     text-align:justify;
 }
 
@@ -518,4 +519,19 @@ h3 .in_stock {
 
 #message-text {
     font-size: 20px;
+}
+
+
+.favorite-button {
+    background-color: #3498db; /* Default color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 140px;
+}
+
+.favorite-button.active {
+    background-color: #e74c3c; /* Active (clicked) color */
+
 }
