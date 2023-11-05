@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from PIL import Image
+from users.models import CustomUser
 # from django_resized import ResizedImageField
 
 # Create your models here.
