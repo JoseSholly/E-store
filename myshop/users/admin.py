@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomProfile, CustomUser, Favorites
+from .models import CustomProfile, CustomUser
 
 # Register your models here.
 # admin.site.register(CustomProfile)
@@ -26,9 +26,9 @@ class ProfileAdmin(admin.ModelAdmin):
 #     filter_horizontal = ['favorites']
 
 
-class SavedItems(admin.ModelAdmin):
-    list_display= ['user']
-    filter_horizontal = ['items']
+# class SavedItems(admin.ModelAdmin):
+#     list_display= ['user']
+#     filter_horizontal = ['items']
 
 
-admin.site.register(Favorites, SavedItems)
+# admin.site.register(Favorites, SavedItems)

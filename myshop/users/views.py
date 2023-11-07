@@ -8,7 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.http import JsonResponse, HttpResponse
 from shop.models import Product
 
-from .models import Favorites
+# from .models import Favorites
 # Create your views here.
 
 def register(request):
@@ -68,19 +68,20 @@ def user_profile(request):
                   {'user_form': user_form,
                    'profile_form': profile_form})
 
-@login_required
-def toggle_favorite(request, product_id):
-    user= request.user
-    favorite, created= Favorites.objects.get_or_create(user=user)
-    product= Product.objects.get(pk= product_id)
+# @login_required
+# def toggle_favorite(request, product_id):
+#     user= request.user
+#     favorite_items, created= Favorites.objects.get_or_create(user=user)
+#     product= Product.objects.get(pk= product_id)
 
-    if product in favorite.favorites.all():
-        favorite.favorites.remove(product)
-        is_favorite = False
-    else:
-        favorite.favorites.add(product)
-        is_favorite = True
+#     if product in favorite_items.items.all():
+#         favorite_items.items.remove(product)
+#         messages.success(request, f"Item removed to favorites")
+#         is_favorite = False
+#     else:
+#         favorite_items.items.add(product)
+#         messages.success(request, f"Item added to favorites")
+#         is_favorite = True
 
-    return redirect('shop:product_detail')
-
-
+#     # return redirect('shop:product_detail')
+#     return JsonResponse({'is_favorite': is_favorite})

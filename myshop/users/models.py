@@ -88,21 +88,6 @@ class CustomProfile(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user.first_name} {self.user.last_name} Profile"
-    
-class Favorites(models.Model):
-    user= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    items= models.ManyToManyField('shop.Product', 
-                                     related_name='saved_items',)
-    
-    class Meta:
-        ordering= ['user']
-        indexes=[
-            models.Index(fields=['user'])
-        ]
-        verbose_name= 'Saved Item'
-        verbose_name_plural= 'Saved Items'
-    def __str__(self) -> str:
-        return f"{self.user.first_name} saved items"
 
 
 
