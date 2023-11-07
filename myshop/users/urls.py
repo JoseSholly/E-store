@@ -10,7 +10,6 @@ urlpatterns= [
     path('register/', views.register, name='register'),
     path('logout/', views.user_logout, name='logout'),
     path('profile/', views.user_profile, name='profile'),
-    # path('toggle_favorite/<int:product_id>/', views.toggle_favorite,name='toggle_favorite'),
     
 ]
 
