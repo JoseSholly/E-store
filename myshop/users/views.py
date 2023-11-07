@@ -68,20 +68,3 @@ def user_profile(request):
                   {'user_form': user_form,
                    'profile_form': profile_form})
 
-# @login_required
-# def toggle_favorite(request, product_id):
-#     user= request.user
-#     favorite_items, created= Favorites.objects.get_or_create(user=user)
-#     product= Product.objects.get(pk= product_id)
-
-#     if product in favorite_items.items.all():
-#         favorite_items.items.remove(product)
-#         messages.success(request, f"Item removed to favorites")
-#         is_favorite = False
-#     else:
-#         favorite_items.items.add(product)
-#         messages.success(request, f"Item added to favorites")
-#         is_favorite = True
-
-#     # return redirect('shop:product_detail')
-#     return JsonResponse({'is_favorite': is_favorite})
