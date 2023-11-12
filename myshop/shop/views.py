@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from django.contrib.auth.decorators import login_required
@@ -53,4 +53,5 @@ def toggle_favorite(request, product_id):
 
     # return redirect('shop:product_detail')
     return JsonResponse({'is_favorite': is_favorite})
+    
 

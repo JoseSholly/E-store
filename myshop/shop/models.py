@@ -66,7 +66,7 @@ class Product(models.Model):
 class Favorites(models.Model):
     user= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     items= models.ManyToManyField('shop.Product', 
-                                     related_name='saved_items',)
+                                     related_name='saved_items', blank=True)
     
     class Meta:
         ordering= ['user']

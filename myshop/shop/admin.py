@@ -17,5 +17,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 class SavedItems(admin.ModelAdmin):
     list_display= ['user']
-    filter_horizontal = ['items']
+    filter_vertical = ['items']
+
 admin.site.register(Favorites, SavedItems)

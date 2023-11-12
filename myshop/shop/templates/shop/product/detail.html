@@ -50,8 +50,10 @@
         
         <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button>
 
+        <p>{{ product.id }}</p>
+
         {% if request.user.is_authenticated %}
-                <a href="{% url 'users:toggle_favorite' items.id %}" class="favorite-button">
+                <a href="{% url 'shop:toggle_favorite' product.id %}" class="favorite-button">
                     {% if item in request.user.favorite.items.all %}
                         Remove from Favorites
                     {% else %}
@@ -59,6 +61,7 @@
                     {% endif %}
                 </a>
             {% endif %}
+       
 
 
         {{ product.description|linebreaks }}
