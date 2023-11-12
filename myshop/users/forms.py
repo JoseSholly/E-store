@@ -15,4 +15,4 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomProfile
-        exclude= ['updated']
+        exclude= ['updated', 'user']

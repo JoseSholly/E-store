@@ -36,22 +36,45 @@ def product_detail(request, id, slug):
 
 
 
+# @login_required
+# def toggle_favorite(request, product_id):
+#     user= request.user
+#     favorite_items, created= Favorites.objects.get_or_create(user=user)
+#     product = get_object_or_404(Product, pk=product_id)
+
+#     if product in favorite_items.items.all():
+#         favorite_items.items.remove(product)
+#         messages.success(request, f"Item removed to favorites")
+#         is_favorite = False
+#     else:
+#         favorite_items.items.add(product)
+#         messages.success(request, f"Item added to favorites")
+#         is_favorite = True
+
+#     print(f"Item ID: {product_id}, Is Favorite: {is_favorite}")
+
+#     # return redirect('shop:product_detail')
+#     return JsonResponse({'is_favorite': is_favorite})
+
 @login_required
 def toggle_favorite(request, product_id):
-    user= request.user
-    favorite_items, created= Favorites.objects.get_or_create(user=user)
-    product= Product.objects.get(pk= product_id)
+    print("Toggle Favorite View Called")
+    user = request.user
+    favorite_items, created = Favorites.objects.get_or_create(user=user)
+    product = get_object_or_404(Product, pk=product_id)
 
     if product in favorite_items.items.all():
+        print("Item Removed from Favorites")
         favorite_items.items.remove(product)
         messages.success(request, f"Item removed to favorites")
         is_favorite = False
     else:
+        print("Item Added to Favorites")
         favorite_items.items.add(product)
         messages.success(request, f"Item added to favorites")
         is_favorite = True
 
-    # return redirect('shop:product_detail')
     return JsonResponse({'is_favorite': is_favorite})
+
     
 

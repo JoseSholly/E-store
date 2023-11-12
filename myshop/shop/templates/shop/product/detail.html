@@ -48,20 +48,51 @@
             }
         </script>
         
-        <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button>
-
+        <!-- <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button> -->
         <p>{{ product.id }}</p>
+        <!-- 
 
         {% if request.user.is_authenticated %}
-                <a href="{% url 'shop:toggle_favorite' product.id %}" class="favorite-button">
-                    {% if item in request.user.favorite.items.all %}
-                        Remove from Favorites
-                    {% else %}
-                        Add to Favorites
-                    {% endif %}
-                </a>
-            {% endif %}
-       
+            <a href="{% url 'shop:toggle_favorite' product.id %}" class="favorite-button">
+                {% if item in request.user.favorite.items.all %}
+                    Saved
+                {% else %}
+                    Save
+                {% endif %}
+            </a>
+        {% endif %} -->
+
+        <script>
+    $(document).ready(function () {
+        $('.favorite-button').on('click', function () {
+            var button = $(this);
+            var productID = button.data('product-id');
+
+            $.ajax({
+                url: '{% url "shop:toggle_favorite" 0 %}'.replace('0', productID),
+                type: 'GET',  // Use 'GET' or 'POST' depending on your view
+                success: function (data) {
+                    if (data.is_favorite) {
+                        $('#message-container').text('Item added to favorites');
+                        button.text('Remove from Favorites');
+                    } else {
+                        $('#message-container').text('Item removed from favorites');
+                        button.text('Add to Favorites');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error in AJAX request:', error);
+                }
+            });
+        });
+    });
+</script>
+
+<button class="favorite-button" data-product-id="{{ product.id }}">Add to Favorites</button>
+<div id="message-container"></div>
+
+
+
 
 
         {{ product.description|linebreaks }}
@@ -69,4 +100,5 @@
         
         
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 {% endblock %}
