@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_bootstrap5',
     'social_django',
+    'django_extensions',
 
 ]
 
