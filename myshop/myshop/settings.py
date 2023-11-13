@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'crispy_forms',
     'bootstrap4',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'social_django',
 
 ]
 
@@ -177,3 +178,17 @@ EMAIL_USE_TLS = True
 
 # Example task module (replace with your actual task module)
 CELERY_IMPORTS = ('orders.tasks',)
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth',
+    'django.contrib.auth.backends.ModelBackend',
+
+    # 'social_core.backends.google.GoogleOpenId',
+    # 'social_core.backends.google.GoogleOAuth2',
+    # 'social_core.backends.google.GoogleOAuth',
+    # 'social_core.backends.twitter.TwitterOAuth',
+    # 'social_core.backends.yahoo.YahooOpenId',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']

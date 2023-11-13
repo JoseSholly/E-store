@@ -62,31 +62,27 @@
             </a>
         {% endif %} -->
 
-        <script>
+    <script>
     $(document).ready(function () {
         $('.favorite-button').on('click', function () {
             var button = $(this);
             var productID = button.data('product-id');
 
-            $.ajax({
-                url: '{% url "shop:toggle_favorite" 0 %}'.replace('0', productID),
-                type: 'GET',  // Use 'GET' or 'POST' depending on your view
-                success: function (data) {
-                    if (data.is_favorite) {
-                        $('#message-container').text('Item added to favorites');
-                        button.text('Remove from Favorites');
+            $.get(
+                "{% url 'shop:toggle_favorite' product.id %}".replace('product.id', productID),
+                function (data) {
+                    if (data.is_favorite !== undefined) {
+                        $('#message-container').text(data.is_favorite ? 'Item added to favorites' : 'Item removed from favorites');
+                        button.text(data.is_favorite ? 'Remove from Favorites' : 'Add to Favorites');
                     } else {
-                        $('#message-container').text('Item removed from favorites');
-                        button.text('Add to Favorites');
+                        console.log('Unexpected response:', data);
                     }
-                },
-                error: function (xhr, status, error) {
-                    console.log('Error in AJAX request:', error);
                 }
-            });
+            );
         });
     });
 </script>
+
 
 <button class="favorite-button" data-product-id="{{ product.id }}">Add to Favorites</button>
 <div id="message-container"></div>
