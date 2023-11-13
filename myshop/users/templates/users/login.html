@@ -169,8 +169,15 @@ button{
         {{ form.password }}
 
         <button type="submit">Log In</button>
+        
         <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
+            <a href="{% url 'social:begin' 'facebook' %}">
+                <div class="go">
+            <i class="fab fa-google"></i>
+            Google
+        </div>
+            </a>
+          
           <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
           
         </div>

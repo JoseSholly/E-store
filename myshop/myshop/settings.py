@@ -186,6 +186,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
 
 
+
     # 'social_core.backends.google.GoogleOpenId',
     # 'social_core.backends.google.GoogleOAuth2',
     # 'social_core.backends.google.GoogleOAuth',
@@ -195,3 +196,7 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("SOCIAL_AUTH_FACEBOOK_KEY") # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("SOCIAL_AUTH_FACEBOOK_SECRET") # Facebook App Secret
+
