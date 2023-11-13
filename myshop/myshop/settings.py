@@ -181,17 +181,9 @@ EMAIL_USE_TLS = True
 CELERY_IMPORTS = ('orders.tasks',)
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.open_id.OpenIdAuth',
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.facebook.FacebookOAuth2',
-
-
-
-    # 'social_core.backends.google.GoogleOpenId',
-    # 'social_core.backends.google.GoogleOAuth2',
-    # 'social_core.backends.google.GoogleOAuth',
-    # 'social_core.backends.twitter.TwitterOAuth',
-    # 'social_core.backends.yahoo.YahooOpenId',
+    'social_core.backends.google.GoogleOAuth2',
 )
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
