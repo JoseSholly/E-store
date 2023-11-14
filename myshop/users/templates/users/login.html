@@ -121,8 +121,7 @@ button{
 }
 .social div{
   background: red;
-  margin-left: 10px;
-  width: 300px;
+  width: 150px;
   border-radius: 3px;
   padding: 5px 10px 10px 5px;
   background-color: rgba(255,255,255,0.27);
@@ -140,10 +139,10 @@ button{
 }
 
 .signup{
-    margin-top: 60px;  
-    font-size: 15px;
-    color: white;
-    font-family: 'Poppins',sans-serif;
+  margin-top: 30px;  
+  font-size: 15px;
+  color: white;
+  font-family: 'Poppins',sans-serif;
   
 }
 
@@ -175,15 +174,15 @@ button{
             <a href="{% url 'social:begin' 'google-oauth2' %}">
                 <div class="go">
             <i class="fab fa-google"></i>
-            Google
+            Sigin in with Google
         </div>
             </a>
           
-          <!-- <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
           
-        </div> -->
+        </div>
         <div class="signup">Don't have account?
-            <a href="{% url 'users:register' %}">Signup Now</a>
+          <a href="{% url 'users:register' %}">Signup Now</a>
         </div>
         
 
