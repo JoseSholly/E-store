@@ -593,8 +593,11 @@ h3 .in_stock {
   border-radius: 4px;
   background-color: whitesmoke;
 }
-
-.first-box {
+.profile-content header h3{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    padding: 8px;
+}
+/* .first-box {
   width: 300px;
   float: left;
   background: green;
@@ -610,4 +613,4 @@ h3 .in_stock {
   background: blue;
   margin-top: 7%;
   margin-right: 55%;
-}
+} */
