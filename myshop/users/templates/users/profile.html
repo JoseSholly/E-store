@@ -5,7 +5,7 @@
 <div class="profile-sidebar">
       <nav>
 
-      <a class="nav-item nav-link" href="#">My Account</a>
+      <a class="nav-item nav-link" href="{% url 'users:profile' %}">My Account</a>
       <a class="nav-item nav-link" href="#">Orders</a>
       <a class="nav-item nav-link" href="#">Inbox</a>
       <a class="nav-item nav-link" href="#">Pending Reviews</a>
@@ -24,11 +24,28 @@
       <header>
             <h3>Account Overview</h2>
       </header>
-      <hr class="solid" style="border-top: 2px solid #bbb; margin: 0;">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eveniet accusantium assumenda soluta? Inventore unde quo asperiores, magnam numquam praesentium at ipsam amet quam soluta incidunt aliquid? Esse optio officiis et quod provident nemo, quaerat illo, rerum hic unde eos.
       
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe id libero molestias eius, excepturi sit sequi corporis ex cupiditate aliquid numquam aut deserunt officiis impedit harum. Illum itaque, sequi ab aperiam quibusdam laboriosam incidunt dolor ullam porro quas? Ea cupiditate optio at accusamus, ipsam omnis pariatur qui nesciunt ipsa impedit eos? Voluptatum aliquam corporis est voluptatibus labore magni itaque fugiat aliquid accusamus ipsum dolores commodi adipisci harum animi rerum minus voluptates error, perferendis fuga minima? Amet iure illo minus porro ipsam ipsum esse quaerat totam nesciunt accusamus quo debitis, dolores ut dolorum, soluta eius placeat itaque explicabo aperiam sunt asperiores et repellat pariatur deleniti! Distinctio ad voluptatum doloribus quibusdam est! Explicabo laudantium dolores rem earum nihil. Quae recusandae totam minus illum assumenda accusantium iste nobis provident ullam porro laudantium dignissimos sed repellendus praesentium eius, quam unde animi eaque quas ipsa odit in illo qui asperiores. Iste deleniti nesciunt architecto maxime dignissimos consectetur veniam quod illo, saepe hic temporibus. Similique, veritatis eos quis quibusdam quia excepturi est mollitia nobis, dolore harum suscipit cum, necessitatibus minus? Quidem recusandae voluptate voluptatem illum eligendi dolores quod libero praesentium veritatis ex nihil cupiditate laborum temporibus sapiente provident, magnam reprehenderit aspernatur vel a rerum tenetur quam? Sit repudiandae id incidunt magnam? Cum temporibus culpa itaque eveniet excepturi pariatur aspernatur nemo inventore, asperiores at velit molestiae facere distinctio laborum dolor reiciendis sequi expedita quas. Nesciunt veniam ea blanditiis est nam minima?
+      <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto;">
 
+      <div id="profile_pic">
+            <img src="{{ user_profile.image.url }}" alt="profile">
+            <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+      </div>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <h4>Profile Info</h4>
+            <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto;">
+           
+            {{ user_form|crispy }}
+            {{ profile_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit
+            ">Update</button>
+        </div>
+    </form>
 </section>
 
 

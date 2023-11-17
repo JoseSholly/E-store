@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import JsonResponse, HttpResponse
 from shop.models import Product
+from .models import CustomProfile, CustomUser
 
 # from .models import Favorites
 # Create your views here.
@@ -50,7 +51,9 @@ def user_logout(request):
 
 @login_required
 def user_profile(request):
+    user_profile = CustomProfile.objects.get(user=request.user)
     if request.method== "POST":
+        
         user_form= UserUpdateForm(request.POST, instance= request.user)
         profile_form= ProfileUpdateForm(request.POST,
                                         request.FILES,
@@ -66,5 +69,6 @@ def user_profile(request):
     return render(request,
                   'users/profile.html',
                   {'user_form': user_form,
-                   'profile_form': profile_form})
+                   'profile_form': profile_form,
+                   'user_profile': user_profile})
 
