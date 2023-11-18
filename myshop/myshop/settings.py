@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'social_django',
     'django_extensions',
+    'coupons.apps.CouponsConfig',
 
 ]
 
