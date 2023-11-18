@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('shop.urls', namespace='shop')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('orders/', include('orders.urls', namespace='orders')),
-
+    path('coupons/', include('coupons.urls', namespace="coupons")),
     path("accounts/profile/", users_views.user_profile, name="profile"),
     
 ]
