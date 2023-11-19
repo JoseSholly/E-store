@@ -29,6 +29,7 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('coupons/', include('coupons.urls', namespace="coupons")),
+    path('payment/', include('payment.urls', namespace='payment')),
     path("accounts/profile/", users_views.user_profile, name="profile"),
     
 ]
