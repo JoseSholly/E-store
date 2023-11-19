@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'social_django',
     'django_extensions',
     'coupons.apps.CouponsConfig',
+    'payment.apps.PaymentConfig',
 
 ]
 
