@@ -11,14 +11,21 @@
     <ul>
       {% for item in cart %}
         <li>
-          {{ item.quantity }}x {{ item.product.name }}
-          <span>${{ item.total_price }}</span>
+          {{ item.quantity }}x {{ item.product.name }} <span>${{ item.total_price|floatformat:2 }}</span>
+          
         </li>
       {% endfor %}
+      {% if cart.coupon %}
+        <li>
+          "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)
+          <span class="neg">- ${{ cart.get_discount|floatformat:2 }}</span>
+        </li>
+      {% endif %}
     </ul>
-    <p>Total: ${{ cart.get_total_price }}</p>
+    <p>Total: ${{ cart.get_total_price_after_discount|floatformat:2 }}</p>
   </div>
   <form method="post" class="order-form">
+    <h3>Order Form</h3>
     {{ form.as_p }}
     <p><input type="submit" value="Place order"></p>
     {% csrf_token %}

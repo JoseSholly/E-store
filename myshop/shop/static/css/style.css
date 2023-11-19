@@ -246,11 +246,36 @@ ul.errorlist {
 
 .order-form {
   float: left;
+  margin-top: 3%;
+  margin-left: 10px;
+
+  box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
+  border-radius: 4px;
+  background-color: #ffffff;
 }
 
+.order-form label{
+  font-size: 16px;
+  font-weight: bold;
+  
+}
+
+.order-form input{
+  width: 400px;
+}
+
+.order-form h3{
+text-align: center;
+}
+
+.order-form form input{
+  margin: 10px;
+}
 .order-info {
-  float: right;
-  width: 300px;
+  margin-top: 3%;
+  margin-right: 30%;
+  float:inline-end;
+  width: auto;
   background: #efefef;
   padding: 10px 20px;
   color: #333;
