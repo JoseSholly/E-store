@@ -26,15 +26,15 @@ def order_create(request):
             cart.clear()
 
             # launch asynchronous task
-            order_created.delay(order.id)
+            order_created.delay(str(order.id))
             
             # set the order in the session
-            request.session['order_id'] = order.id
+            request.session['order_id'] = str(order.id)
 
             # return render(request,
             #               'orders/order/created.html',
-            #               {'order': order},
-            #               locals())
+            #               locals()
+            #             )
 
             # redirect for payment
             return redirect(reverse('payment:process'))
