@@ -3,8 +3,17 @@ from shop.models import Product
 import uuid
 from decimal import Decimal
 from django.core.validators import MinLengthValidator, MaxLengthValidator
-
+from django.core.exceptions import ValidationError
 from coupons.models import Coupon
+
+
+# Creating Validators
+def postal_code_validator(value):
+    if value.isnumeric() or value.isalnum():
+        return value
+    else:
+        raise ValidationError("Invalid Postal Code Format")
+    
 # Create your models here.
 
 class Order(models.Model):
@@ -16,7 +25,7 @@ class Order(models.Model):
     last_name= models.CharField(max_length=50,)
     email= models.EmailField()
     address= models.CharField(max_length=250)
-    postal_code= models.CharField(max_length=20)
+    postal_code= models.CharField(max_length=20,null=True,  validators=[postal_code_validator])
     city= models.CharField(max_length=100)
     created= models.DateTimeField(auto_now_add=True)
     updated= models.DateTimeField(auto_now=True)
