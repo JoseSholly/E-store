@@ -5,14 +5,24 @@ from decimal import Decimal
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.core.exceptions import ValidationError
 from coupons.models import Coupon
+import re
 
 
 # Creating Validators
-def postal_code_validator(value):
-    if value.isnumeric() or value.isalnum():
-        return value
+def postal_code_validator(postal_code):
+
+    # Check if postal code is alphanumeric and Check if postal code length is between 4 and 10 characters
+    if len(postal_code) > 4 and re.match(r"^[0-9a-zA-Z]+$", postal_code):
+        return postal_code
     else:
         raise ValidationError("Invalid Postal Code Format")
+
+
+def validate_discount(value):
+    if value < 0 or value > 100:
+        raise ValidationError("Discount must be between 0 and 100.")
+    else:
+        return value
     
 # Create your models here.
 
@@ -25,7 +35,7 @@ class Order(models.Model):
     last_name= models.CharField(max_length=50,)
     email= models.EmailField()
     address= models.CharField(max_length=250)
-    postal_code= models.CharField(max_length=20,null=True,  validators=[postal_code_validator])
+    postal_code= models.CharField(max_length=10,null=True,validators=[postal_code_validator])
     city= models.CharField(max_length=100)
     created= models.DateTimeField(auto_now_add=True)
     updated= models.DateTimeField(auto_now=True)
@@ -36,8 +46,7 @@ class Order(models.Model):
                                blank=True,
                                on_delete= models.SET_NULL)
     discount = models.IntegerField(default=0,
-                                   validators=[MinLengthValidator(0),
-                                               MaxLengthValidator(100)])
+                                   validators=[validate_discount])
 
 
     class Meta:
