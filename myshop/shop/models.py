@@ -77,3 +77,27 @@ class Favorites(models.Model):
         verbose_name_plural= 'Saved Items'
     def __str__(self) -> str:
         return f"{self.user.first_name} saved items"
+
+class Review(models.Model):
+    product= models.ForeignKey(Product, 
+                               on_delete= models.CASCADE,
+                               related_name='reviews')
+    user= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    def user_full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
+    
+    def user_email(self):
+        return f"{self.user.email}"
+    class Meta:
+        ordering = ['created']
+        indexes = [
+        models.Index(fields=['created']),
+        ]
+    def __str__(self):
+        return f'Review by {self.user.first_name} {self.user.email}'
+    

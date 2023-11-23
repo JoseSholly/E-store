@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Favorites
+from .models import Category, Product, Favorites, Review
 
 # Register your models here.
 
@@ -20,3 +20,10 @@ class SavedItems(admin.ModelAdmin):
     filter_vertical = ['items']
 
 admin.site.register(Favorites, SavedItems)
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['product', 'user', 'created', 'active']
+    list_filter = ['active', 'created', 'updated']
+    search_fields = ['product', 'user', 'body']
