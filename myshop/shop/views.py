@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from django.contrib.auth.decorators import login_required
-from .models import Favorites
+from .models import Favorites, Review
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
+from .forms import ReviewForm
+from django.views.decorators.http import require_POST
 # Create your views here.
 
 def product_list(request, category_slug=None):
@@ -77,4 +79,27 @@ def toggle_favorite(request, product_id):
     return JsonResponse({'is_favorite': is_favorite})
 
     
+
+@require_POST
+def post_review(request, product_id):
+    product= get_object_or_404(Product, id=product_id, )
+    review= None
+
+    # review instantiated
+    form= ReviewForm(data= request.POST)
+
+    if form.is_valid():
+        # Creating review object without saving 
+        review= form.save(commit=False)
+        # Assigns product to review
+        review.product= product
+
+        # Save review to database
+        review.save()
+
+    return render(request, 'shop/product/review.html',
+                  {'product': product,
+                   'form': form,
+                   'review': review})
+
 
