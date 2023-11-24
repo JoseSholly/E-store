@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
 from .forms import ReviewForm
 from django.views.decorators.http import require_POST
+from django.urls import reverse
 # Create your views here.
 
 def product_list(request, category_slug=None):
@@ -81,8 +82,11 @@ def toggle_favorite(request, product_id):
     
 
 @require_POST
-def post_review(request, product_id):
-    product= get_object_or_404(Product, id=product_id, )
+def post_review(request, id, slug):
+    product= get_object_or_404(Product,
+                               id=id,
+                               slug=slug,
+                               available=True)
     review= None
 
     # review instantiated
@@ -94,12 +98,16 @@ def post_review(request, product_id):
         # Assigns product to review
         review.product= product
 
+        review.user= request.user
+
         # Save review to database
         review.save()
 
-    return render(request, 'shop/product/review.html',
+
+
+    return render(request, 'shop/product/detail.html',
                   {'product': product,
-                   'form': form,
+                   'review_form': form,
                    'review': review})
 
 

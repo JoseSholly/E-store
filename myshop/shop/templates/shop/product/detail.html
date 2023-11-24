@@ -47,6 +47,14 @@
                 }
             }
         </script>
+        <h2>Add a new comment</h2>
+            <form action="{% url 'shop:post_review' product.id product.slug %}" method="post">
+            {{ review_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Add comment"></p>
+            </form>
+
+        <!-- {% include "shop/product/review_form.html" %} -->
         
         <!-- <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button> -->
         <p>{{ product.id }}</p>
@@ -95,6 +103,8 @@
         
         
         
-    </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 {% endblock %}
