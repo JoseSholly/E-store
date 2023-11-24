@@ -83,6 +83,8 @@ class Review(models.Model):
                                on_delete= models.CASCADE,
                                related_name='reviews')
     user= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user_name= models.CharField(max_length=255, blank=True)
+    user_email= models.CharField(blank=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
