@@ -165,22 +165,14 @@ ul.errorlist {
 }
 
 #sidebar {
-  width: 220px;
-  margin-top: 4%;
-  padding: 30px 20px 0 0;
+  width: 250px;
+  margin-top: 6%;
+  margin-left: -5%;
+  padding: 10px 10px 10px 10px;
   float: left;
-
   font-family: 'Open Sans', sans-serif;
-
-  position: fixed;
-  margin-left: 15px;
-  margin-top: 7%;
-
-  background: whitesmoke;
-  width: 300px;
-  max-width: 500px;
-  padding-top: 0;
-  padding-left: 20px;
+  /* position: fixed; */
+  background: #ffffff;
   box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
   border-radius: 4px;
   height: auto;
@@ -199,15 +191,21 @@ ul.errorlist {
 #sidebar ul li {
   margin: 0;
   list-style: none;
-  padding: 10px 14px;
+  padding:  10px;
   font-family: 'Open Sans', sans-serif;
 
 }
 
-#sidebar ul li a {
+#sidebar ul li a  {
   display: block;
   font-family: 'Open Sans', sans-serif;
+  text-decoration: solid;
 
+}
+
+#sidebar ul li a:hover{
+  color: orange;
+  transition: 0.5;
 }
 
 #sidebar ul li.selected {
@@ -221,19 +219,27 @@ ul.errorlist {
 
 #main {
   float: right;
-  width: 96%;
-  margin-right: -220px;
+  width: 90%;
   overflow: hidden;
-  margin-top: 5.5%;
+  margin-right: -5%;
+  margin-top: 6%;
+  padding: 10px;
+
+  background: whitesmoke;
+  box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
+  border-radius: 4px;
+  height: auto;
 }
 
 .product-list .item {
-  width: 25%;
-  padding: 10px 20px 10px 0;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
   float: left;
-  text-align: center;
+  text-align: left;
   line-height: 1.2;
   font-family: 'Open Sans', sans-serif;
+  margin:10px;
 }
 .product-list h2{
   font-family: 'Open Sans', sans-serif;
@@ -243,7 +249,7 @@ ul.errorlist {
 .product-list .item img {
   width: 300px;
   height: 250px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
 
