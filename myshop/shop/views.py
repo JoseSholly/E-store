@@ -31,11 +31,27 @@ def product_detail(request, id, slug):
                                id=id,
                                slug=slug,
                                available=True)
+    reviews= Review.objects.filter(product= id)
     cart_product_form= CartAddProductForm()
+    
+    if request.method== "POST":
+        review_form= ReviewForm(request.POST)
+        if review_form.is_valid():
+            review= review_form.save(commit=False)
+            review.user= request.user
+            review.product= product
+            review.save()
+
+            return redirect('shop:product_detail', id= id, slug= slug)
+    else:
+        review_form= ReviewForm()
+
     return render(request,
                   'shop/product/detail.html',
                   {'product': product,
-                   'cart_product_form': cart_product_form},)
+                   'cart_product_form': cart_product_form,
+                   'review_form': review_form,
+                   'reviews': reviews},)
 
 
 

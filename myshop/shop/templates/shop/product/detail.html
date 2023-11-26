@@ -47,12 +47,12 @@
                 }
             }
         </script>
-        <h2>Add a new comment</h2>
+        <!-- <h2>Add a new comment</h2>
             <form action="{% url 'shop:post_review' product.id product.slug %}" method="post">
             {{ review_form.as_p }}
             {% csrf_token %}
             <p><input type="submit" value="Add comment"></p>
-            </form>
+            </form> -->
 
         <!-- {% include "shop/product/review_form.html" %} -->
         
@@ -102,7 +102,18 @@
         {{ product.description|linebreaks }}
         
         
-        
+        {% for review in reviews %}
+        {{ review.body }}
+        <p>{{  review.user_name }} {{  review.user_email }}</p>
+
+        {% endfor %}
+
+        <h2>Add a new comment</h2>
+        <form action="{% url 'shop:product_detail' product.id product.slug  %}" method="post">
+        {{ review_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Add comment"></p>
+        </form>
 
 
 

@@ -96,7 +96,7 @@ class Review(models.Model):
     def user_email(self):
         return f"{self.user.email}"
     class Meta:
-        ordering = ['created']
+        ordering = ['-created']
         indexes = [
         models.Index(fields=['created']),
         ]
