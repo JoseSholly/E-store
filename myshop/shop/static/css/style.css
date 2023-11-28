@@ -200,11 +200,12 @@ ul.errorlist {
   display: block;
   font-family: 'Open Sans', sans-serif;
   text-decoration: solid;
-
+  color: black;
 }
 
 #sidebar ul li a:hover{
-  color: orange;
+  color: #5993bb;
+  font-size: 16.5px;
   transition: 0.5;
 }
 
@@ -240,6 +241,29 @@ ul.errorlist {
   line-height: 1.2;
   font-family: 'Open Sans', sans-serif;
   margin:10px;
+  text-decoration: solid;
+  color: black;
+  transition: 0.5;
+  display: block;
+}
+
+.product-list .item a{
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: solid;
+  color: black;
+  transition: 0.5;
+  font-size: 15px;
+}
+
+.product-list .item a:hover, 
+.product-list .item a img:hover{
+  color: #5993bb;
+  font-size: 16.2px;
+  padding-bottom: 10px;
+  /* padding: 10px; */
+  transform: scale(1.1);
+  
+  
 }
 .product-list h2{
   font-family: 'Open Sans', sans-serif;
@@ -250,6 +274,7 @@ ul.errorlist {
   width: 300px;
   height: 250px;
   margin-bottom: 10px;
+  transition: 0.5;
   display: block;
 }
 
