@@ -11,16 +11,18 @@
     <div class="product-detail">
         <img src="{% if product.image %}{{ product.image.url }}{% else %} {% static 'img/no_image_1.jpg' %}{% endif %}">
         <h1>{{ product.name }}</h1>
+
         <h2>Category:
             <a href="{{ product.category.get_absolute_url }}">
                 {{ product.category }}
             </a>
         </h2>
+        <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 10px;">
         <p class="price">${{ product.price }}</p>
         <h3 class="in_stock">
             Availability: 
             {% if product.stock_quantity >= 10 %}
-                <p class="in_stock">In Stock</p>
+                <p class="in_stock">{{ product.stock_quantity }} units</p>
             {% elif 5 < product.stock_quantity > 10 %}
                 <p class="in_stock">Few Stock remaining</p>
             {% elif product.stock_quantity <= 0 %}
@@ -29,7 +31,8 @@
                 {{ product.stock_quantity }} items left</p>
             {% endif %}
             </h3>
-        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
             <input type="submit", value="Add to cart">
@@ -47,30 +50,8 @@
                 }
             }
         </script>
-        <!-- <h2>Add a new comment</h2>
-            <form action="{% url 'shop:post_review' product.id product.slug %}" method="post">
-            {{ review_form.as_p }}
-            {% csrf_token %}
-            <p><input type="submit" value="Add comment"></p>
-            </form> -->
 
-        <!-- {% include "shop/product/review_form.html" %} -->
-        
-        <!-- <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button> -->
-        <p>{{ product.id }}</p>
-        <!-- 
-
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'shop:toggle_favorite' product.id %}" class="favorite-button">
-                {% if item in request.user.favorite.items.all %}
-                    Saved
-                {% else %}
-                    Save
-                {% endif %}
-            </a>
-        {% endif %} -->
-
-    <script>
+        <script>
     $(document).ready(function () {
         $('.favorite-button').on('click', function () {
             var button = $(this);
@@ -94,6 +75,36 @@
 
 <button class="favorite-button" data-product-id="{{ product.id }}">Add to Favorites</button>
 <div id="message-container"></div>
+
+
+    </div>
+
+        
+        
+        <!-- <h2>Add a new comment</h2>
+            <form action="{% url 'shop:post_review' product.id product.slug %}" method="post">
+            {{ review_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Add comment"></p>
+            </form> -->
+
+        <!-- {% include "shop/product/review_form.html" %} -->
+        
+        <!-- <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button> -->
+        <p>{{ product.id }}</p>
+        <!-- 
+
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'shop:toggle_favorite' product.id %}" class="favorite-button">
+                {% if item in request.user.favorite.items.all %}
+                    Saved
+                {% else %}
+                    Save
+                {% endif %}
+            </a>
+        {% endif %} -->
+
+    
 
 
 
