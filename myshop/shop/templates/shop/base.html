@@ -10,6 +10,12 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+      <link rel="stylesheet" href="{% static 'font/fontawesome.min.css' %}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'font/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'font/all.min.css' %}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'font/brands.min.css' %}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       
     </head>
     <body>
@@ -50,6 +56,7 @@
                   </div>
                     
               {% else %}
+              
               <a href="{% url 'users:login' %}" id="log_in">
                 <button type="button" class="btn btn-outline-primary">Login</button>
               </a>
@@ -61,6 +68,7 @@
                 </i>
                   
               {% endif %}
+
               <a class="nav-item nav-link  about" href="#">About</a>
 
           </div>

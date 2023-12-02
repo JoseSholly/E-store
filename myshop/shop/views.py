@@ -77,21 +77,23 @@ def product_detail(request, id, slug):
 
 @login_required
 def toggle_favorite(request, product_id):
-    print("Toggle Favorite View Called")
+    # print("Toggle Favorite View Called")
     user = request.user
     favorite_items, created = Favorites.objects.get_or_create(user=user)
     product = get_object_or_404(Product, pk=product_id)
 
     if product in favorite_items.items.all():
-        print("Item Removed from Favorites")
+        # print("Item Removed from Favorites")
         favorite_items.items.remove(product)
-        messages.success(request, f"Item removed to favorites")
         is_favorite = False
+        # print(f"Item removed to Wishlist")
+        messages.success(request, f"Item removed to Wishlist")
     else:
-        print("Item Added to Favorites")
+        # print("Item Added to Favorites")
         favorite_items.items.add(product)
-        messages.success(request, f"Item added to favorites")
         is_favorite = True
+        # print(f"Item added to Wishlist")
+        messages.success(request, f"Item added to Wishlist")
 
     return JsonResponse({'is_favorite': is_favorite})
 

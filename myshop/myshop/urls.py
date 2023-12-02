@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as users_views
+from shop import views as shop_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('', include('shop.urls', namespace='shop')),
+    path('toggle-favorite/<int:product_id>/',shop_views.toggle_favorite, name='toggle_favorite'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('coupons/', include('coupons.urls', namespace="coupons")),
