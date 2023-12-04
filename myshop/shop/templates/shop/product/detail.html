@@ -25,7 +25,7 @@
             <i class="fas fa-heart fave_icon"></i>
             </button>
 
-        
+        {% if product.discount %}
         <div class="price">
             ${{ product.get_discount }} 
             <p class="text-decoration-line-through fs-4">${{ product.price }}</p>
@@ -33,6 +33,12 @@
                 -{{ product.discount}}%
             </div>
         </div> 
+        {% else %}
+        <div class="price">
+            ${{ product.price }} 
+
+        </div>
+        {% endif %}
         <h3 class="in_stock">
             Availability: 
             {% if product.stock_quantity >= 10 %}
