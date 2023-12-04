@@ -2,8 +2,15 @@ from django.db import models
 from django.urls import reverse
 from PIL import Image
 from users.models import CustomUser
+from django.core.exceptions import ValidationError
 # from django_resized import ResizedImageField
 
+# Model Discount validator
+def validate_discount(value):
+    if value < 0 or value > 100:
+        raise ValidationError("Discount must be between 0 and 100.")
+    else:
+        return value
 # Create your models here.
 
 class Category(models.Model):
@@ -42,6 +49,8 @@ class Product(models.Model):
     created= models.DateTimeField(auto_now_add=True)
     updated= models.DateTimeField(auto_now=True)
     stock_quantity= models.PositiveIntegerField()
+    discount = models.IntegerField(default=0,
+                                   validators=[validate_discount])
 
 
     class Meta:
