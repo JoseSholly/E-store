@@ -26,7 +26,13 @@
             </button>
 
         
-        <p class="price">${{ product.price }}</p>
+        <div class="price">
+            ${{ product.get_discount }} 
+            <p class="text-decoration-line-through fs-4">${{ product.price }}</p>
+            <div class="badge bg-primary text-wrap discount" style="width: auto; font-size: 18px;">
+                -{{ product.discount}}%
+            </div>
+        </div> 
         <h3 class="in_stock">
             Availability: 
             {% if product.stock_quantity >= 10 %}

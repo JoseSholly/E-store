@@ -3,6 +3,7 @@ from django.urls import reverse
 from PIL import Image
 from users.models import CustomUser
 from django.core.exceptions import ValidationError
+from decimal import Decimal
 # from django_resized import ResizedImageField
 
 # Model Discount validator
@@ -69,6 +70,15 @@ class Product(models.Model):
         return reverse('shop:product_detail',
                        args=[self.id,
                              self.slug])
+    def get_discount(self):
+        actual_cost= self.price
+        discount_price =actual_cost * (self.discount / Decimal(100))
+        if self.discount:
+            return actual_cost - discount_price
+        return Decimal(0)
+
+
+
     
 
 

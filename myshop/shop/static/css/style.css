@@ -293,8 +293,23 @@ ul.errorlist {
 
 .product-detail .price {
   color: #333;
-  font-size: 28px;
+  font-size: 38px;
   font-weight: bold;
+ 
+}
+
+.product-detail .price p{
+  display: inline-block;
+  font-weight: lighter;
+}
+
+.product-detail .price .discount{
+  display: inline-block;
+  position: relative;
+  top: -7px;
+
+
+  
 }
 
 .product-detail img {
