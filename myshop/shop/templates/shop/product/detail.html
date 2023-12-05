@@ -18,7 +18,7 @@
             </a>
         </h2>
         
-        <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 10px;">
+        <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin-top: 10px;">
 
 
         <button id="love-button" data-product-id="{{ product.id }}">
@@ -113,25 +113,38 @@
         <!-- {% include "shop/product/review_form.html" %} -->
         
         <!-- <button id="favorite-button" class="favorite-button" onclick="toggleFavorite()" value="Clicked">Save</button> -->
-        <p>{{ product.id }}</p>
+        <!-- <p>{{ product.id }}</p> -->
          
+        <div class="product-detail-info">
+            <h1>Product Details</h1>
+        <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
+
+           {{ product.description|linebreaks }} 
+        </div>
+
 
         
+        <div class="product-detail-reviews">
+            <h1>Verified Customers Reviews</h1>
+            <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
+            <h3>COMMENTS FROM VERIFIED PURCHASES({{ review.count }})</h3>
+            <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
 
-    
 
-
-
-
-
-        {{ product.description|linebreaks }}
+            <div id="reviews">
+                {% for review in reviews %}
+                <p class="fw-bold">{{ review.body }}</p>
         
-        <h3>Customers Reviews</h3>
-        {% for review in reviews %}
-        {{ review.body }}
-        <p>{{  review.user_name }} {{  review.user_email }}</p>
+        <p class="fw-lighter">By {{  review.user_name }} on {{  review.created }}</p>
+        <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
 
         {% endfor %}
+            </div>
+        
+        </div>
+        
+
+        
 
         <!-- <h2>Add a new comment</h2>
         <form action="{% url 'shop:product_detail' product.id product.slug  %}" method="post">

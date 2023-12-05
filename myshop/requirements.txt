@@ -51,6 +51,7 @@ social-auth-core==4.5.0
 sorl-thumbnail==12.10.0
 soupsieve==2.5
 sqlparse==0.4.4
+stripe==4.0.2
 svglib==1.5.1
 tinycss2==1.2.1
 tornado==6.3.3

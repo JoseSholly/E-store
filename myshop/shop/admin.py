@@ -24,6 +24,6 @@ admin.site.register(Favorites, SavedItems)
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['product', 'user_name',"user_email", 'created', 'active']
+    list_display =['user_name','product' ,"user_email", 'created', 'active']
     list_filter = ['active', 'created', 'updated']
     search_fields = ['product', 'user', 'body']
