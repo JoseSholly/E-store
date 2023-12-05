@@ -119,7 +119,7 @@
             <h1>Product Details</h1>
         <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
 
-           {{ product.description|linebreaks }} 
+           <p>{{ product.description|linebreaks }}</p>
         </div>
 
 
@@ -127,15 +127,15 @@
         <div class="product-detail-reviews">
             <h1>Verified Customers Reviews</h1>
             <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
-            <h3>COMMENTS FROM VERIFIED PURCHASES({{ review.count }})</h3>
+            <h3>COMMENTS FROM VERIFIED PURCHASES({{ reviews|length }})</h3>
             <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
 
 
             <div id="reviews">
                 {% for review in reviews %}
-                <p class="fw-bold">{{ review.body }}</p>
+                <p class="fw-bold p-2 fs-5">{{ review.body }}</p>
         
-        <p class="fw-lighter">By {{  review.user_name }} on {{  review.created }}</p>
+        <p class="fw-lighter p-2 fs-6">By {{  review.user_name }} on {{  review.created }}</p>
         <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; margin: 0px;">
 
         {% endfor %}

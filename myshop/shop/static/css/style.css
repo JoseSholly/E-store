@@ -798,13 +798,14 @@ h3 .in_stock {
 .product-detail-info,
 .product-detail-reviews{
   margin-top: 60px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
   border-radius: 4px;
   background-color: whitesmoke;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   padding-bottom: 20px;
+  margin-bottom: 20px;
 
 }
 
@@ -814,6 +815,11 @@ h3 .in_stock {
   font-size: 30px;
   padding: 10px 10px 0px 10px;
 
+}
+
+.product-detail-info p{
+  padding-top: 2px;
+  padding-bottom: 10px;
 }
 
 .product-detail-reviews h3{
