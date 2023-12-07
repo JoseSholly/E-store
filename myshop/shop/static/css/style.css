@@ -835,3 +835,22 @@ h3 .in_stock {
 
 
 
+.payment-success{
+  margin-top: 8%;
+  padding: 10px;
+  box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
+  border-radius: 4px;
+  background-color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+  margin-left: 35%;
+  height: 600px;
+  width: 400px;
+}
+
+
+.payment-success h1{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+

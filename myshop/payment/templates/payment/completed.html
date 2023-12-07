@@ -3,6 +3,15 @@
 {% block title %}Payment successful{% endblock %}
 
 {% block content %}
-  <h1>Your payment was successful</h1>
+  <div class="payment-success">
+    <i class="bi bi-check2-circle" style="font-size: 150px; margin-left: 30%; color: green;"></i>
+    <h1>Successful</h1>
   <p>Your payment has been processed successfully.</p>
+  <p>{{ order_id}}</p>
+
+  </div>
+
+
+
+  
 {% endblock %}

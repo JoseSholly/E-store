@@ -11,7 +11,7 @@ def order_processor(request):
         except KeyError:
             # Get latest order for user
             try:
-                order = get_object_or_404(Order, user=request.user, paid=False)
+                order = get_object_or_404(Order, user=request.user, paid=True)
                 order_id = order.id
                 request.session['order_id'] = order_id
             except Order.DoesNotExist:
