@@ -4,11 +4,15 @@
 
 {% block content %}
   <div class="payment-success">
-    <i class="bi bi-check2-circle" style="font-size: 150px; margin-left: 30%; color: green;"></i>
-    <h1>Successful</h1>
-  <p>Your payment has been processed successfully.</p>
-  <p>{{ order_id }}</p>
-  {{ order_total }}
+    <i class="bi bi-check2-circle" style="font-size: 200px; margin-left: 32%; color: green;"></i>
+    <p class="fw-bolder text-center fs-1">${{ order_total }}</p>
+    <h1>Successful!</h1>
+  <p class="text-center">Your payment has been processed successfully.</p>
+  <p class="fw-bolder text-center">Transaction ID: {{ order_id }}</p>
+
+  <a href="/" >Continue Shopping</a>
+  
+
 
 
   </div>
