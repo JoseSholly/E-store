@@ -77,6 +77,13 @@ class Product(models.Model):
             return actual_cost - discount_price
         return Decimal(0)
 
+    def get_discounted_price(self):
+        if self.discount:
+            discount_amount = self.price * (self.discount / Decimal(100))
+            discounted_price = self.price - discount_amount
+            return discounted_price
+        return self.price
+
 
 
     
