@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404
 from .models import Order
+from django.shortcuts import get_object_or_404
+from .models import Order, OrderItem
 
 
 def order_processor(request):
@@ -14,6 +15,10 @@ def order_processor(request):
                 order = get_object_or_404(Order, user=request.user, paid=True)
                 order_id = order.id
                 request.session['order_id'] = order_id
+
             except Order.DoesNotExist:
                 pass
-    return {'order_id': order_id}
+    return {'order_id': order_id,
+            }
+
+

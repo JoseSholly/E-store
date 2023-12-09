@@ -52,10 +52,13 @@ def payment_process(request):
     
 
 def payment_completed(request):
-    
-    return render(request, 'payment/completed.html')
+    order_id = request.session.get('order_id', None)
+    order = get_object_or_404(Order, id=order_id)
+    total_order_cost= order.get_total_cost()
+    return render(request, 'payment/completed.html',
+                  {"order_total": total_order_cost})
 
 
 def payment_canceled(request):
-    return render(request, 'payment/canceled.html')
+    return render(request, 'payment/canceled.html',)
     
