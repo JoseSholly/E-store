@@ -47,6 +47,7 @@ class Order(models.Model):
                                on_delete= models.SET_NULL)
     discount = models.IntegerField(default=0,
                                    validators=[validate_discount])
+    stripe_id = models.CharField(max_length=250, blank=True)
 
 
     class Meta:

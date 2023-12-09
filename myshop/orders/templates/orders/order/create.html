@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Checkout</h1>
   <div class="order-info">
     <h3>Your order</h3>
+    <hr class="solid" style="border-top: 2px solid #bbb; margin: 0; width: auto; padding: 5px;">
     <ul>
       {% for item in cart %}
         <li>
-          {{ item.quantity }}x {{ item.product.name }} <span>${{ item.total_price|floatformat:2 }}</span>
+          <p>{{ item.quantity }}x {{ item.product.name }} - <span class="ms-2">${{ item.total_price|floatformat:2 }}</span></p> 
           
         </li>
       {% endfor %}
