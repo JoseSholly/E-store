@@ -4,6 +4,8 @@ from django.utils.safestring import mark_safe
 import csv
 import datetime
 from django.http import HttpResponse
+from django.urls import reverse
+
 
 # Register your models here.
 
@@ -33,6 +35,11 @@ def export_to_csv(modeladmin, request, queryset):
 export_to_csv.short_description = 'Export to CSV'
 
 
+def order_detail(obj):
+    url = reverse('orders:admin_order_detail', args=[obj.id])
+    return mark_safe(f'<a href="{url}">View</a>')
+
+
 def order_payment(obj):
    url = obj.get_stripe_url()
    if obj.stripe_id:
@@ -50,7 +57,7 @@ class OrderItemInline(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
-                    'address', 'postal_code', 'city', 'paid', order_payment, 'created', 'updated']
+                    'address', 'postal_code', 'city', 'paid', order_payment, 'created', 'updated', order_detail]
     list_filter = ['paid', 'created', 'updated']
     search_fields=['id', 'email', ]
     inlines = [OrderItemInline]
