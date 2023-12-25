@@ -57,7 +57,7 @@ class Order(models.Model):
             models.Index(fields=['-created'])
         ]
     def __str__(self) -> str:
-        return f"Order {self.id}"
+        return f"{self.id}"
 
     def get_total_cost(self):
         total_cost= self.get_total_cost_before_discount()

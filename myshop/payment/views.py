@@ -56,7 +56,8 @@ def payment_completed(request):
     order = get_object_or_404(Order, id=order_id)
     total_order_cost= order.get_total_cost()
     return render(request, 'payment/completed.html',
-                  {"order_total": total_order_cost})
+                  {"order_total": total_order_cost,
+                   "ORDER_ID": order})
 
 
 def payment_canceled(request):
