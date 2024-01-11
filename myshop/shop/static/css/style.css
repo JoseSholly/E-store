@@ -408,8 +408,8 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .order-info p {
-  font-weight: bold;
-  float: right;
+  font-weight: normal;
+  float: left;
 }
 
 .order-info span {
