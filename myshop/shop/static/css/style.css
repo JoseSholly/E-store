@@ -457,6 +457,7 @@ font-family: 'Open Sans', sans-serif;
   height: 300px;
   width: 100%;
   padding: 5px;
+  margin: 5px;
 }
 
 .recommendations div {
@@ -501,11 +502,13 @@ font-family: 'Open Sans', sans-serif;
 .recommendations.cart {
   width: 60%;
   float: left;
-  overflow: auto;
+  overflow:hidden;
 }
 
 .recommendations.cart h3 {
-  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  padding: 10px;
 }
 
 .recommendations.cart .item {
@@ -513,7 +516,9 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .recommendations.cart img {
-  width: 120px;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
 }
 
 /* braintree hosted fields */
