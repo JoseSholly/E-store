@@ -238,7 +238,8 @@ ul.errorlist {
   height: auto;
 }
 
-.product-list .item {
+.product-list .item
+{
   width: 300px;
   height: 300px;
   padding: 10px;
@@ -259,9 +260,10 @@ ul.errorlist {
   color: black;
   transition: 0.5;
   font-size: 15px;
+  
 }
 
-.product-list .item a:hover, 
+.product-list .item a:hover,
 .product-list .item a img:hover{
   color: #5993bb;
   font-size: 16.2px;
@@ -446,6 +448,15 @@ font-family: 'Open Sans', sans-serif;
 
 .recommendations {
   clear: both;
+  
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+  background: white;
+  box-shadow: 2px 5px 10px rgba(245, 240, 240, 0.5);
+  border-radius: 4px;
+  height: 300px;
+  width: 100%;
+  padding: 5px;
 }
 
 .recommendations div {
@@ -454,8 +465,35 @@ font-family: 'Open Sans', sans-serif;
 
 .recommendations img {
   width: 200px;
+  height: 200px;
+  padding: 10px;
+}
+.recommendations .item a{
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: solid;
+  color: black;
+  transition: 0.5;
+  font-size: 15px;
+  
+  
 }
 
+.recommendations .item a:hover,
+.recommendations .item a img:hover{
+  color: #5993bb;
+  font-size: 16.2px;
+  padding-bottom: 10px;
+  /* padding: 10px; */
+  transform: scale(1.1);
+  
+  
+}
+.recommendations h3{
+  
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  padding: 10px;
+}
 .recommendations p {
   clear: both;
 }
@@ -872,4 +910,3 @@ h3 .in_stock {
   margin-left: 32%;
   margin-top: 100px;
 }
-

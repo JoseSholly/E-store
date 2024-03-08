@@ -8,6 +8,7 @@ from django.http import JsonResponse, HttpResponse
 from .forms import ReviewForm
 from django.views.decorators.http import require_POST
 from django.urls import reverse
+from .recommender import Recommender
 # Create your views here.
 
 def product_list(request, category_slug=None):
@@ -33,6 +34,8 @@ def product_detail(request, id, slug):
                                available=True)
     reviews= Review.objects.filter(product= id)
     cart_product_form= CartAddProductForm()
+    r = Recommender()
+    recommended_products = r.suggest_products_for([product], 4)
     
     # if request.method== "POST":
     #     review_form= ReviewForm(request.POST)
@@ -50,8 +53,8 @@ def product_detail(request, id, slug):
                   'shop/product/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form,
-                #    'review_form': review_form,
-                   'reviews': reviews},)
+                   'reviews': reviews,
+                   'recommended_products': recommended_products},)
 
 
 
