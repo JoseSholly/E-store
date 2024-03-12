@@ -63,10 +63,10 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email',
+    list_display = ['uuid', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid', order_payment, 'created', 'updated', order_detail, order_pdf]
     list_filter = ['paid', 'created', 'updated']
-    search_fields=['id', 'email', ]
+    search_fields=['uuid', 'email', ]
     inlines = [OrderItemInline]
     # actions = [export_to_csv]
 
