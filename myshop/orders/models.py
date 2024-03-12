@@ -28,9 +28,9 @@ def validate_discount(value):
 # Create your models here.
 
 class Order(models.Model):
-    uuid= models.UUIDField(default=uuid.uuid4, 
+    uuid = models.CharField(default=uuid.uuid4,
                                editable=False,
-                               )
+                               max_length=50)
     first_name= models.CharField(max_length=50,)
     last_name= models.CharField(max_length=50,)
     email= models.EmailField()
@@ -96,6 +96,6 @@ class OrderItem(models.Model):
     
 
     def __str__(self) -> str:
-        return str(self.id)
+        return str(self.uuid)
     def get_cost(self):
         return self.price * self.quantity

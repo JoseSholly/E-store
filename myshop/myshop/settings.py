@@ -94,8 +94,13 @@ WSGI_APPLICATION = 'myshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'estore',
+        'USER': 'estore',
+        'PASSWORD': 'TESTING321',
     }
 }
 
@@ -144,11 +149,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-CART_SESSION_ID= 'cart'
+CART_SESSION_ID = 'cart'
 
 
-INTERNAL_IPS=['127.0.0.1']
-
+INTERNAL_IPS = ['127.0.0.1']
 
 
 # Django Resized Field Settings
@@ -161,15 +165,14 @@ DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 
 
-AUTH_USER_MODEL= "users.CustomUser"
+AUTH_USER_MODEL = "users.CustomUser"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-LOGIN_URL= 'users:login'
+LOGIN_URL = 'users:login'
 LOGOUT_REDIRECT_URL = 'shop:product_list'
-
 
 
 # Email server configuration
@@ -214,22 +217,25 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("SOCIAL_AUTH_FACEBOOK_KEY") # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("SOCIAL_AUTH_FACEBOOK_SECRET") # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv(
+    "SOCIAL_AUTH_FACEBOOK_KEY")  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv(
+    "SOCIAL_AUTH_FACEBOOK_SECRET")  # Facebook App Secret
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")  # Google Client ID
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")  # Google Client Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv(
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")  # Google Client ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")  # Google Client Secret
 
 
 # Stripe settings
-STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY") # Publishable key
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")  # Publishable key
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")  # Secret key
 STRIPE_API_VERSION = '2022-08-01'
-STRIPE_WEBHOOK_SECRET= os.getenv("endpoint_secret")
+STRIPE_WEBHOOK_SECRET = os.getenv("endpoint_secret")
 
 
 # Redis settings
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
-

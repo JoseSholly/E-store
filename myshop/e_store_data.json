@@ -2145,6 +2145,19 @@
   }
 },
 {
+  "model": "admin.logentry",
+  "pk": 166,
+  "fields": {
+    "action_time": "2024-03-12T01:12:30.650Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -3248,8 +3261,8 @@
   "model": "sessions.session",
   "pk": "t8p9jgl4xhk0nj8devfrzxm0nfpoomnq",
   "fields": {
-    "session_data": ".eJxVjkkOgzAUQ--SdRUFMjAsu-cM6OMfCm1FpARWiLs3SFRql7afLe-ip22d-i352M8sWlGK2683EF5-OQN-0vIIEmFZ4zzIE5FXmmQX2L_vF_s3MFGacltbwFnFDIWxKVhDaZSu8gxjjUNTG3LsYBilcboZSWU5cm1rXxmr8miI_D1ZZAmKq2j34_gAy9Q_wA:1rjpx0:RfMULIqFMcNxWCaYWZ4-NSvLhpAvolEVMXhuDgr-7iI",
-    "expire_date": "2024-03-26T00:25:02.435Z"
+    "session_data": ".eJxVjkkOgzAUQ--SdRUFMjAsu-cM6OMfCm1FpARWiLs3SFRql7afLe-ip22d-i352M8sWlGK2683EF5-OQN-0vIIEmFZ4zzIE5FXmmQX2L_vF_s3MFGacltbwFnFDIWxKVhDaZSu8gxjjUNTG3LsYBilcboZSWU5cm1rXxmr8miI_D1ZZAmKq2j34_gAy9Q_wA:1rjqgy:GZK6RAcaPs9K-5MNO4cAhT_VLG-6rlT3E45hVPZhywk",
+    "expire_date": "2024-03-26T01:12:32.444Z"
   }
 },
 {
@@ -3580,35 +3593,6 @@
     "created": "2023-12-05T06:58:13.373Z",
     "updated": "2023-12-05T06:58:13.373Z",
     "active": true
-  }
-},
-{
-  "model": "orders.order",
-  "pk": 1,
-  "fields": {
-    "uuid": "9f84a391-bdab-4387-b2bf-0223eccf52e6",
-    "first_name": "Test",
-    "last_name": "User",
-    "email": "favourmeogou@gmail.com",
-    "address": "Idu industrial layout, Paipe Abuja",
-    "postal_code": "900108",
-    "city": "Abuja",
-    "created": "2024-03-12T00:23:54.335Z",
-    "updated": "2024-03-12T00:23:54.335Z",
-    "paid": false,
-    "coupon": null,
-    "discount": 0,
-    "stripe_id": ""
-  }
-},
-{
-  "model": "orders.orderitem",
-  "pk": 1,
-  "fields": {
-    "order": 1,
-    "product": 5,
-    "price": "98.00",
-    "quantity": 1
   }
 },
 {
