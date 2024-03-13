@@ -69,7 +69,7 @@ def admin_order_pdf(request, order_id):
     html = render_to_string('orders/order/pdf.html',
                             {'order': order})
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = f'filename=order_{order.id}.pdf'
+    response['Content-Disposition'] = f'filename=order_{order.uuid}.pdf'
     weasyprint.HTML(string=html).write_pdf(response,
                                            stylesheets=[weasyprint.CSS(
                                                settings.STATIC_ROOT / 'css/pdf.css')])
