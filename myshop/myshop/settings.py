@@ -94,21 +94,14 @@ WSGI_APPLICATION = 'myshop.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jose_store',
+        'NAME': 'my_store',
         'USER': 'jose_store',
         'PASSWORD': 'TESTING321',
         'HOST': 'localhost',
-
-        
-=======
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
->>>>>>> parent of cdb6aae (Postgres)
     }
 }
 
