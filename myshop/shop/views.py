@@ -151,12 +151,6 @@ def product_search(request):
     query= request.GET.get('query')
     results= []
     categories = Category.objects.all()
-    # if 'query' in request.GET:
-    #     form = SearchForm(request.GET)
-        
-    #     if form.is_valid():
-    #         query= form.cleaned_data['query']
-    #         results= Product.objects.annotate(search= SearchVector('name')).filter(search= query)
     if query:
         # Perform a case-insensitive search across 'name' field of Product model
         results = Product.objects.annotate(

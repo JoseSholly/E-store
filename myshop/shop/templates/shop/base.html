@@ -23,8 +23,8 @@
           <div class="container-fluid">
             <a class="navbar-brand logo" href="/"><i class="bi bi-cart"></i>MyShop</a>
             <div class="d-flex justify-content-start search_form">
-              <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search for categories, products and accessories" aria-label="Search">
+              <form class="d-flex" role="search" method="get" action="{% url 'shop:product_search' %}">
+              <input class="form-control me-2" type="search" name="query" placeholder="Search for categories, products and accessories" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 
