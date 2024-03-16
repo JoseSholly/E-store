@@ -5,10 +5,11 @@ from django.contrib.auth.decorators import login_required
 from .models import Favorites, Review
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
-from .forms import ReviewForm
+from .forms import ReviewForm, SearchForm
 from django.views.decorators.http import require_POST
 from django.urls import reverse
 from .recommender import Recommender
+from django.contrib.postgres.search import SearchVector
 # Create your views here.
 
 def product_list(request, category_slug=None):
@@ -132,3 +133,19 @@ def post_review(request, id, slug):
                    'review': review})
 
 
+def post_search(request):
+    form = SearchVector()
+    query= None
+    results= []
+
+    if 'query' in request.GET:
+        form = SearchVector(request.GET)
+        if form.is_valid():
+            query= form.cleaned_data['query']
+            results= Product.objects.annotate(search= SearchVector('name')).filter(search= query)
+
+    return render(request,
+                  'shop/product/search.html',
+                  {'form': form,
+                    'query': query,
+                    'results': results})

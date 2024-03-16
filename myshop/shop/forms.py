@@ -6,3 +6,6 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model= Review
         fields= ["body"]
+
+class SearchForm(forms.Form):
+    query= forms.CharField()
