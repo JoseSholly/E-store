@@ -14,6 +14,9 @@ from django.contrib.postgres.search import SearchVector
 
 def product_list(request, category_slug=None):
     category= None
+    form= SearchForm()
+    query = None
+    results = []
     categories= Category.objects.all()
     products= Product.objects.filter(available=True)
     if category_slug:
@@ -21,11 +24,22 @@ def product_list(request, category_slug=None):
                                     slug= category_slug)
         products= products.filter(category=category)
 
+    elif 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = Product.objects.annotate(
+                search=SearchVector('name')).filter(search=query)
+    
+
     return render(request, 
                 'shop/product/list.html',
-                {'catogory': category,
+                {'category': category,
                 'categories': categories,
-                'products': products,})
+                'products': products,
+                 'form': form,
+                 'query': query,
+                 'results': results, })
 
 
 def product_detail(request, id, slug):
@@ -133,19 +147,23 @@ def post_review(request, id, slug):
                    'review': review})
 
 
-def post_search(request):
-    form = SearchVector()
-    query= None
+def product_search(request):
+    query= request.GET.get('query')
     results= []
-
-    if 'query' in request.GET:
-        form = SearchVector(request.GET)
-        if form.is_valid():
-            query= form.cleaned_data['query']
-            results= Product.objects.annotate(search= SearchVector('name')).filter(search= query)
+    categories = Category.objects.all()
+    # if 'query' in request.GET:
+    #     form = SearchForm(request.GET)
+        
+    #     if form.is_valid():
+    #         query= form.cleaned_data['query']
+    #         results= Product.objects.annotate(search= SearchVector('name')).filter(search= query)
+    if query:
+        # Perform a case-insensitive search across 'name' field of Product model
+        results = Product.objects.annotate(
+            search=SearchVector('name')).filter(search=query)
 
     return render(request,
                   'shop/product/search.html',
-                  {'form': form,
-                    'query': query,
-                    'results': results})
+                  {'query': query,
+                    'results': results,
+                    'categories': categories})
