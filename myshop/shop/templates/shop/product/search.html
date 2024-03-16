@@ -18,16 +18,30 @@
   </div>
 
 
-<h1>Search for posts</h1>
-{% if query %}
-<h1>Product containing "{{ query }}"</h1>
-<h3>
-    {% with results.count as total_results %}
-    Found {{ total_results }} result{{ total_results|pluralize }}
-    {% endwith %}
- </h3>
+  <div id="main" class="product-list">
+    {% if query %}
+    <h2>"{{ query }}" products: {% with results.count as total_results %}
+    {{ total_results }} result{{ total_results|pluralize }}
+    {% endwith %} found </h2>
+    
+    {% else %}
+    <h2>No</h2>
+    {% endif %}
 
- {% endif %}
+    {% for product in results %}
+      
+      <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image_1.jpg' %}{% endif %}">
+          {{ product.name|slice:":34" }}..
+          <br>
+          ${{ product.price }}
+
+        </a>
+       
+      </div>
+    {% endfor %}
+  </div>
 
 {% endblock %}
 
